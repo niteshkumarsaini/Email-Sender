@@ -1,0 +1,11 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+#mat-toolbar{
+  border: 2px solid red;
+}
+
+.span-item{
+  margin-left: 10px;
+}
+

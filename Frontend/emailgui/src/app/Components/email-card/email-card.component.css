@@ -1,0 +1,10 @@
+.email-container{
+  margin: auto;
+  text-align: center;
+}
+.container{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
+}

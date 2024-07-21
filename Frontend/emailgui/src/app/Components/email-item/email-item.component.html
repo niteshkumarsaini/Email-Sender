@@ -1,0 +1,36 @@
+<form class="example-form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Subject</mat-label>
+    <input matInput placeholder="Write Subject.." [(ngModel)]="data.subject" name="subject">
+  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com" [(ngModel)]="data.to" name="to">
+      <mat-hint>Enter Sender Email</mat-hint>
+      @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+        <mat-error>Please enter a valid email address</mat-error>
+      }
+      @if (emailFormControl.hasError('required')) {
+        <mat-error>Email is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>CC</mat-label>
+      <input matInput placeholder="Enter CC Mail id" type="email" [(ngModel)]="data.cc" name="cc">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Message</mat-label>
+      <textarea matInput placeholder="Write your message.." [(ngModel)]="data.message" name="message"></textarea>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit">Send</button>
+
+  </form>
+
+  <div class="text-center" *ngIf="flag" >
+  <div class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="text-loader">Sending...</div>
+</div>
